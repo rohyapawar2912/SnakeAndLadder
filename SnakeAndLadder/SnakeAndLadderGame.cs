@@ -8,21 +8,16 @@ namespace SnakeAndLadder
 {
     public class SnakeAndLadderGame
     {
-        private int currentPlayerPosition;
+        private Random random;
 
         public SnakeAndLadderGame()
         {
-            currentPlayerPosition = 0;
+            random = new Random();
         }
 
-        public void Play()
+        public int Roll()
         {
-            Console.WriteLine("Welcome to Snake and Ladder Game!");
-
-            // Simulate the game logic here
-
-            // Print the final position of the player
-            Console.WriteLine("Player position: " + currentPlayerPosition);
-        }    
+            return random.Next(1, 7);
+        }
     }
 }
