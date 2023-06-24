@@ -10,11 +10,13 @@ namespace SnakeAndLadder
     {
         private int currentPlayerPosition;
         private Random random;
+        private int diceRollCount;
 
         public SnakeAndLadderGame()
         {
             currentPlayerPosition = 0;
             random = new Random();
+            diceRollCount = 0;
         }
 
         public void Play()
@@ -25,6 +27,7 @@ namespace SnakeAndLadder
             {
                 // Roll the die
                 int dieRoll = random.Next(1, 7);
+                diceRollCount++;
                 Console.WriteLine("Die roll: " + dieRoll);
 
                 // Determine the player's option (No Play, Ladder, or Snake) using random number generation
@@ -59,6 +62,7 @@ namespace SnakeAndLadder
             }
 
             Console.WriteLine("Congratulations! Player reached the exact winning position of 100.");
+            Console.WriteLine("Number of times the dice was played to win the game: " + diceRollCount);
         }
     }
 }
