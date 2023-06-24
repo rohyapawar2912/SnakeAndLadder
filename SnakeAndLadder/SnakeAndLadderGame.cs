@@ -21,7 +21,7 @@ namespace SnakeAndLadder
         {
             Console.WriteLine("Welcome to Snake and Ladder Game!");
 
-            while (currentPlayerPosition < 100)
+            while (currentPlayerPosition != 100)
             {
                 // Roll the die
                 int dieRoll = random.Next(1, 7);
@@ -47,11 +47,18 @@ namespace SnakeAndLadder
                         break;
                 }
 
+                // Check if the player's position goes above 100
+                if (currentPlayerPosition > 100)
+                {
+                    Console.WriteLine("Player cannot move beyond position 100. Stay in the previous position.");
+                    currentPlayerPosition -= dieRoll;
+                }
+
                 // Print the current position of the player
                 Console.WriteLine("Player position: " + currentPlayerPosition);
             }
 
-            Console.WriteLine("Congratulations! Player reached the winning position.");
+            Console.WriteLine("Congratulations! Player reached the exact winning position of 100.");
         }
     }
 }
